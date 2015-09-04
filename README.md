@@ -30,7 +30,7 @@ now you can declare the plugin:
     </configuration>
     <executions>
       <execution>
-        <phase>package</phase>
+        <phase>validate</phase>
         <goals>
           <goal>work</goal>
         </goals>
@@ -44,3 +44,5 @@ now you can declare the plugin:
 2. **mask** - by default set to "*"
 3. **type** - the only one possible type is *default*
 4. **deep** - whether to look into subfolders, "y" or "n", "y" if not set
+
+Please pay attention to phase in which you'll plan to use that plugin. It is quite useless to update files after packaging, so if you want to assemble application with corrected files, use plugin in phases prior to *package*
