@@ -1,5 +1,5 @@
 Simple Maven plugin aims to remove Byte Order Mark (BOM) from text files.
-Based upon [this project](hhtp://github.com/s1ac2x1/bom-remover)
+Based upon [this project](http://github.com/s1ac2x1/bom-remover).
 
 ###### Usage
 
