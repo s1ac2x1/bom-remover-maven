@@ -37,7 +37,7 @@ now you can declare the plugin. Minimal configuration is:
 </plugins>
 ```
 where **folder** points to folder to start search with, "." if not set. 
-With such config plugin will find all files in specified folder (without subfolders)
+With such config plugin will find all files in specified folder (without subfolders).
 
 Another configuration available:
 
