@@ -14,7 +14,7 @@ Add to your's pom.xml a link to plugin's repository:
   </pluginRepository>
 </pluginRepositories>
 ```
-now you can declare the plugin:
+now you can declare the plugin. Minimal configuration is:
 
 ```xml
 <plugins>
@@ -24,9 +24,6 @@ now you can declare the plugin:
     <version>1.0</version>
     <configuration>
       <folder>${path.to.folder.with.bom.files}</folder>
-      <mask>*</mask>
-      <type>default</type>
-      <deep>y</deep>
     </configuration>
     <executions>
       <execution>
@@ -39,10 +36,36 @@ now you can declare the plugin:
   </plugin>
 </plugins>
 ```
+where **folder** points to folder to start search with, "." if not set
+With such config plugin will find all files in specified folder (without subfolders)
 
-1. **folder** - where to find files to work with, "." if not set
-2. **mask** - by default set to "*"
-3. **type** - the only one possible type is *default*
-4. **deep** - whether to look into subfolders, "y" or "n", "y" if not set
+Another configuration available:
+
+```xml
+<plugins>
+  <plugin>
+    <groupId>com.kishlaly.utils.maven</groupId>
+    <artifactId>bom-remover</artifactId>
+    <version>1.0</version>
+    <configuration>
+      <folder>${path.to.folder.with.bom.files}</folder>
+      <masks>
+        <mask>*.java</mask>
+        <mask>*.txt</mask>
+      </masks>
+      <recursively>yes</recursively>
+    </configuration>
+    <executions>
+      <execution>
+        <phase>validate</phase>
+        <goals>
+          <goal>work</goal>
+        </goals>
+      </execution>
+    </executions>
+  </plugin>
+</plugins>
+```
+with this config plugin will find all files based upon given masks in provided folder and it's subfolders.
 
 Please pay attention to phase in which you'll plan to use that plugin. It is quite useless to update files after packaging, so if you want to assemble application with corrected files, use plugin in phases prior to *package*
