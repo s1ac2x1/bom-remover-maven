@@ -10,7 +10,6 @@ Add to your's pom.xml a link to plugin's repository:
   <pluginRepository>
     <id>kishlaly</id>
     <url>http://maven.kishlaly.com</url>
-    <layout>default</layout>
   </pluginRepository>
 </pluginRepositories>
 ```
